@@ -1,43 +1,87 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const wrapper = document.querySelector('.wrapper');
-  const signUpBtnLink = document.querySelector('.signUpBtn-link');
-  const signInBtnLink = document.querySelector('.signInBtn-link');
-  
-  signUpBtnLink.addEventListener('click', () => {
-    wrapper.classList.toggle('active');
-  });
-  
-  signInBtnLink.addEventListener('click', () => {
-    wrapper.classList.toggle('active');
-  });
-
-  // Handle form submissions
-  const forms = document.querySelectorAll('form');
-  forms.forEach(form => {
-    form.addEventListener('submit', async (e) => {
+  document.querySelectorAll('.links a').forEach(link => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: new URLSearchParams(formData)
+      const targetForm = link.getAttribute('href').substring(1);
+      document.querySelectorAll('.signin, .signup').forEach(section => {
+        section.style.display = section.classList.contains(targetForm) ? 'flex' : 'none';
       });
-
-      if (response.redirected) {
-        window.location.href = response.url;
-      }
     });
   });
 
-  // Handle URL parameters for showing messages
-  const urlParams = new URLSearchParams(window.location.search);
-  const error = urlParams.get('error');
-  const success = urlParams.get('success');
+  // Initially show the sign-in form
+  document.querySelector('.signin').style.display = 'flex';
+  document.querySelector('.signup').style.display = 'none';
 
-  if (error) {
-    alert('Error: ' + error.replace('-', ' '));
+  function validatePasswords(event) {
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const errorMessage = document.getElementById('error-message');
+    const userExistsMessage = document.getElementById('user-exists-message');
+    
+    // Placeholder: Replace with actual user existence check
+    const userAlreadyRegistered = false; // Change this condition based on your logic
+
+    if (userAlreadyRegistered) {
+      event.preventDefault();
+      userExistsMessage.style.display = 'block';
+      errorMessage.style.display = 'none';
+    } else if (password !== confirmPassword) {
+      event.preventDefault();
+      errorMessage.style.display = 'block';
+      userExistsMessage.style.display = 'none';
+    }
   }
-  if (success) {
-    alert('Success: ' + success.replace('-', ' '));
-  }
+
+const dashboard = document.querySelector('.dashboard');
+const signinForm = document.querySelector('.signin .form');
+const signupForm = document.querySelector('.signup .form');
+
+let token = null;
+
+signinForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = signinForm.querySelector('input[type="text"]').value;
+    const password = signinForm.querySelector('input[type="password"]').value;
+
+    const response = await fetch('https://your-render-app-url.com/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+        token = result.token;
+        document.getElementById('username-display').textContent = email; // Or fetch the username from the token
+        dashboard.style.display = 'block';
+        signinForm.parentElement.style.display = 'none';
+    } else {
+        alert(result.message);
+    }
 });
+
+document.getElementById('logout').addEventListener('click', () => {
+    token = null; // Clear token
+    dashboard.style.display = 'none';
+    signinForm.parentElement.style.display = 'flex'; // Return to sign-in page
+});
+
+// Optional: Redirect to dashboard if already logged in
+const checkToken = async () => {
+    if (token) {
+        const response = await fetch('https://your-render-app-url.com/dashboard', {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (response.ok) {
+            dashboard.style.display = 'block';
+            signinForm.parentElement.style.display = 'none';
+        } else {
+            token = null; // Token expired or invalid
+        }
+    }
+};
+
+checkToken();
+
