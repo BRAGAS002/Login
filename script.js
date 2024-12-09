@@ -32,56 +32,60 @@
     }
   }
 
-const dashboard = document.querySelector('.dashboard');
-const signinForm = document.querySelector('.signin .form');
-const signupForm = document.querySelector('.signup .form');
-
-let token = null;
-
-signinForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = signinForm.querySelector('input[type="text"]').value;
-    const password = signinForm.querySelector('input[type="password"]').value;
-
-    const response = await fetch('https://your-render-app-url.com/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-        token = result.token;
-        document.getElementById('username-display').textContent = email; // Or fetch the username from the token
-        dashboard.style.display = 'block';
-        signinForm.parentElement.style.display = 'none';
-    } else {
-        alert(result.message);
-    }
-});
-
-document.getElementById('logout').addEventListener('click', () => {
-    token = null; // Clear token
-    dashboard.style.display = 'none';
-    signinForm.parentElement.style.display = 'flex'; // Return to sign-in page
-});
-
-// Optional: Redirect to dashboard if already logged in
-const checkToken = async () => {
-    if (token) {
-        const response = await fetch('https://your-render-app-url.com/dashboard', {
-            headers: { Authorization: `Bearer ${token}` },
-        });
-
-        if (response.ok) {
-            dashboard.style.display = 'block';
-            signinForm.parentElement.style.display = 'none';
-        } else {
-            token = null; // Token expired or invalid
-        }
-    }
-};
-
-checkToken();
-
+  const signinForm = document.querySelector('.signin .form');
+  const signupForm = document.querySelector('.signup .form');
+  const dashboard = document.querySelector('.dashboard');
+  
+  let token = null;
+  
+  signinForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = signinForm.querySelector('input[type="text"]').value;
+      const password = signinForm.querySelector('input[type="password"]').value;
+  
+      const response = await fetch('https://login-server-1iaj.onrender.com/login', { // Updated URL
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+          token = result.token;
+          const decoded = JSON.parse(atob(token.split('.')[1])); // Decode token to get user info
+          document.getElementById('username-display').textContent = decoded.username;
+          dashboard.style.display = 'block';
+          signinForm.parentElement.style.display = 'none';
+      } else {
+          alert(result.message);
+      }
+  });
+  
+  signupForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const username = signupForm.querySelector('input[type="text"]').value;
+      const email = signupForm.querySelector('input[type="email"]').value;
+      const password = signupForm.querySelector('input[type="password"]').value;
+  
+      const response = await fetch('https://login-server-1iaj.onrender.com/signup', { // Updated URL
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+          alert('Sign up successful! Please log in.');
+      } else {
+          alert(result.message);
+      }
+  });
+  
+  document.getElementById('logout').addEventListener('click', () => {
+      token = null; // Clear the token on logout
+      dashboard.style.display = 'none';
+      signinForm.parentElement.style.display = 'flex'; // Show the login form again
+  });
+  
