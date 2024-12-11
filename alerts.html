@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submeter Portal - Alerts</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="alerts.css">
+    <script src="dashboard.js" defer></script>
+    <script src="alerts.js" defer></script>
+</head>
+<body class="dashboard-body">
+    <nav class="sidebar">
+        <!-- Same sidebar as other pages -->
+        <div class="sidebar-header">
+            <h2>Submeter Portal</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html"><i class="icon">📊</i> Dashboard</a></li>
+            <li><a href="meter.html"><i class="icon">🔌</i> Meters</a></li>
+            <li><a href="reports.html"><i class="icon">📈</i> Reports</a></li>
+            <li class="active"><a href="alerts.html"><i class="icon">🔔</i> Alerts</a></li>
+            <li><a href="settings.html"><i class="icon">⚙️</i> Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="logout-button">Logout</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="search-bar">
+                <input type="search" placeholder="Search alerts...">
+            </div>
+            <div class="user-info">
+                <span class="user-name">John Doe</span>
+                <div class="user-avatar">JD</div>
+            </div>
+        </header>
+
+        <div class="alerts-container">
+            <div class="alerts-header">
+                <h2>System Alerts</h2>
+                <div class="filter-section">
+                    <select class="alert-filter">
+                        <option value="all">All Alerts</option>
+                        <option value="critical">Critical</option>
+                        <option value="warning">Warning</option>
+                        <option value="info">Info</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="alerts-list">
+                <div class="alert-item critical">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-content">
+                        <h3>Critical: High Power Consumption</h3>
+                        <p>Building A has exceeded the maximum power threshold</p>
+                        <span class="alert-time">2 hours ago</span>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="action-btn">Acknowledge</button>
+                        <button class="action-btn">Details</button>
+                    </div>
+                </div>
+
+                <div class="alert-item warning">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-content">
+                        <h3>Warning: Meter Communication Error</h3>
+                        <p>Meter MT002 has connection issues</p>
+                        <span class="alert-time">5 hours ago</span>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="action-btn">Acknowledge</button>
+                        <button class="action-btn">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

@@ -24,11 +24,20 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
     window.location.href = 'index.html';
 });
 
-// Add active class to current nav item
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('.nav-links .active').classList.remove('active');
-        this.parentElement.classList.add('active');
+// Set active class based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the current page filename
+    const currentPage = window.location.pathname.split('/').pop() || 'dashboard.html';
+    
+    // Remove active class from all links
+    document.querySelectorAll('.nav-links li').forEach(li => {
+        li.classList.remove('active');
+    });
+
+    // Find the matching link and add active class to its parent li
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('href').includes(currentPage)) {
+            link.parentElement.classList.add('active');
+        }
     });
 });

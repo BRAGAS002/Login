@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submeter Portal - Reports</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="reports.css">
+    <script src="dashboard.js" defer></script>
+    <script src="reports.js" defer></script>
+</head>
+<body class="dashboard-body">
+    <nav class="sidebar">
+        <!-- Same sidebar as other pages -->
+        <div class="sidebar-header">
+            <h2>Submeter Portal</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="dashboard.html"><i class="icon">📊</i> Dashboard</a></li>
+            <li><a href="meter.html"><i class="icon">🔌</i> Meters</a></li>
+            <li class="active"><a href="reports.html"><i class="icon">📈</i> Reports</a></li>
+            <li><a href="alerts.html"><i class="icon">🔔</i> Alerts</a></li>
+            <li><a href="settings.html"><i class="icon">⚙️</i> Settings</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <button id="logoutBtn" class="logout-button">Logout</button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="search-bar">
+                <input type="search" placeholder="Search reports...">
+            </div>
+            <div class="user-info">
+                <span class="user-name">John Doe</span>
+                <div class="user-avatar">JD</div>
+            </div>
+        </header>
+
+        <div class="reports-container">
+            <div class="reports-header">
+                <h2>Energy Reports</h2>
+                <div class="report-actions">
+                    <button class="generate-report-btn">Generate New Report</button>
+                    <select class="report-period">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>Monthly Consumption Report</h3>
+                        <span class="date">March 2024</span>
+                    </div>
+                    <div class="report-preview">
+                        <img src="chart-placeholder.png" alt="Report Preview">
+                    </div>
+                    <div class="report-actions">
+                        <button class="action-btn">Download PDF</button>
+                        <button class="action-btn">Share</button>
+                    </div>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-header">
+                        <h3>Cost Analysis Report</h3>
+                        <span class="date">Q1 2024</span>
+                    </div>
+                    <div class="report-preview">
+                        <img src="chart-placeholder.png" alt="Report Preview">
+                    </div>
+                    <div class="report-actions">
+                        <button class="action-btn">Download PDF</button>
+                        <button class="action-btn">Share</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 
