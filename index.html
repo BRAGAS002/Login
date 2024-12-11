@@ -1,339 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login page</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submeter Portal - Login</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-<section>
+    <div class="container">
+        <div class="login-container">
+            <div class="logo-section">
+                <h1>Submeter Portal</h1>
+                <p class="subtitle">Energy Management System</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="forgot-password">
+                        <a href="#">Forgot Password?</a>
+                    </span>
+                </div>
 
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
+                <div class="g-recaptcha" data-sitekey="6Lc6Rq4aAAAAAG4j0qg0v5Hqy8H0Yy2iQ8qJrjBj"></div>
 
-    <form class="signin">
-  <div class="content">
-    <h2>Sign In</h2>
-    <div class="form">
-      <div class="inputBox">
-        <input type="text" required>
-        <i>Username</i>
-      </div>
-      <div class="inputBox">
-        <input type="password" required>
-        <i>Password</i>
-      </div>
-      <div class="links">
-        <div class="remember-me">
-          <input type="checkbox" id="rememberMe">
-          <label for="rememberMe">Remember Me</label>
+                <div class="form-group">
+                    <button type="submit" class="login-button">Login</button>
+                </div>
+
+                <div id="loginError" class="error-message" style="display: none; color: #e74c3c; text-align: center; margin-top: 10px;"></div>
+
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#">Contact Admin</a></p>
+                </div>
+            </form>
         </div>
-        <a href="#signup">Sign up</a>
-      </div>
-      <div class="inputBox">
-        <input type="submit" value="Login">
-      </div>
     </div>
-  </div>
-</form>
-<form class="signup">
-  <div class="content">
-    <h2>Sign Up</h2>
-    <div class="form">
-      <div class="inputBox">
-        <input type="text" required>
-        <i>Username</i>
-      </div>
-      <div class="inputBox">
-        <input type="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Please enter a valid email address">
-        <i>Email</i>
-      </div>
-      <div class="inputBox">
-        <input type="password" id="password" required>
-        <i>Password</i>
-      </div>
-      <div class="inputBox">
-        <input type="password" id="confirmPassword" required>
-        <i>Confirm Password</i>
-      </div>
-      <div id="error-message" style="color: red; display: none;">
-        Passwords do not match.
-      </div>
-      <div id="user-exists-message" style="color: red; display: none;">
-        User already registered.
-      </div>
-      <div class="inputBox">
-        <input type="submit" value="Sign up" onclick="validatePasswords(event)">
-      </div>
-      <div class="links">
-        <a href="#signin">Already have an account?</a>
-      </div>
-    </div>
-  </div>
-</form>
-<div class="dashboard" style="display: none;">
-  <h2>Welcome, <span id="username-display"></span>!</h2>
-  <button id="logout">Logout</button>
-</div>
-
-<script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("loginForm").submit();
+        }
+    </script>
 </body>
 </html>
