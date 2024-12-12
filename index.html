@@ -9,8 +9,7 @@
     <style>
     
     </style>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeAmpgqAAAAAJoIMEJwORbx7ZKsmODLUEQD64K6"></script>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class="container">
@@ -33,11 +32,13 @@
                         <a href="#">Forgot Password?</a>
                     </span>
                 </div>
-                
-                <div class="g-recaptcha" data-sitekey="6LeMoZgqAAAAAL80onqcqV89CQVJMQCz760yE5CJ" data-callback="onRecaptchaSuccess"></div>
 
                 <div class="form-group">
-                    <button type="submit" class="login-button" id="loginBtn">Login</button>
+                    <div class="g-recaptcha" data-sitekey="6LeMoZgqAAAAAL80onqcqV89CQVJMQCz760yE5CJ" data-callback="onRecaptchaSuccess"></div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="login-button" disabled id="loginBtn">Login</button>
                 </div>
 
                 <div id="loginError" class="error-message" style="display: none; color: #e74c3c; text-align: center; margin-top: 10px;"></div>
