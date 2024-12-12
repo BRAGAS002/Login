@@ -34,12 +34,7 @@
                     </span>
                 </div>
                 
-                <div class="g-recaptcha" data-sitekey="6LeMoZgqAAAAAL80onqcqV89CQVJMQCz760yE5CJ" data-callback="onSubmit" data-size="invisible"></div>
-
-                <div class="not-a-robot">
-                    <input type="checkbox" id="notARobot" name="notARobot" required>
-                    <label for="notARobot">I'm not a robot</label>
-                </div>
+                <div class="g-recaptcha" data-sitekey="6LeMoZgqAAAAAL80onqcqV89CQVJMQCz760yE5CJ" data-callback="onRecaptchaSuccess"></div>
 
                 <div class="form-group">
                     <button type="submit" class="login-button" id="loginBtn">Login</button>
@@ -55,13 +50,7 @@
     </div>
     <script src="auth.js"></script>
     <script>
-        function onSubmit(token) {
-            // Add the token to a hidden input field for submission
-            const recaptchaTokenField = document.createElement('input');
-            recaptchaTokenField.type = 'hidden';
-            recaptchaTokenField.name = 'g-recaptcha-response';
-            recaptchaTokenField.value = token;
-            document.getElementById('loginForm').appendChild(recaptchaTokenField);
+        function onRecaptchaSuccess() {
             document.getElementById('loginBtn').disabled = false;
         }
     </script>
