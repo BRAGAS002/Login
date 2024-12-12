@@ -6,6 +6,9 @@
     <title>Submeter Portal - Login</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="login.css">
+    <style>
+    
+    </style>
     <script src="https://www.google.com/recaptcha/api.js?render=6LeAmpgqAAAAAJoIMEJwORbx7ZKsmODLUEQD64K6"></script>
 
 </head>
@@ -30,11 +33,16 @@
                         <a href="#">Forgot Password?</a>
                     </span>
                 </div>
+                
+                <div class="g-recaptcha" data-sitekey="6LeMoZgqAAAAAL80onqcqV89CQVJMQCz760yE5CJ" data-callback="onSubmit" data-size="invisible"></div>
 
-                <div class="g-recaptcha" data-sitekey="6Lc6Rq4aAAAAAG4j0qg0v5Hqy8H0Yy2iQ8qJrjBj"></div>
+                <div class="not-a-robot">
+                    <input type="checkbox" id="notARobot" name="notARobot" required>
+                    <label for="notARobot">I'm not a robot</label>
+                </div>
 
                 <div class="form-group">
-                    <button type="submit" class="login-button">Login</button>
+                    <button type="submit" class="login-button" id="loginBtn">Login</button>
                 </div>
 
                 <div id="loginError" class="error-message" style="display: none; color: #e74c3c; text-align: center; margin-top: 10px;"></div>
@@ -47,16 +55,15 @@
     </div>
     <script src="auth.js"></script>
     <script>
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6LeAmpgqAAAAAJoIMEJwORbx7ZKsmODLUEQD64K6', {action: 'login'}).then(function(token) {
-                // Add the token to a hidden input field for submission
-                const recaptchaTokenField = document.createElement('input');
-                recaptchaTokenField.type = 'hidden';
-                recaptchaTokenField.name = 'g-recaptcha-response';
-                recaptchaTokenField.value = token;
-                document.getElementById('loginForm').appendChild(recaptchaTokenField);
-            });
-        });
+        function onSubmit(token) {
+            // Add the token to a hidden input field for submission
+            const recaptchaTokenField = document.createElement('input');
+            recaptchaTokenField.type = 'hidden';
+            recaptchaTokenField.name = 'g-recaptcha-response';
+            recaptchaTokenField.value = token;
+            document.getElementById('loginForm').appendChild(recaptchaTokenField);
+            document.getElementById('loginBtn').disabled = false;
+        }
     </script>
 </body>
 </html>

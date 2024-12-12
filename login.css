@@ -88,4 +88,30 @@ input:focus {
     .subtitle {
         font-size: 1rem;
     }
+
+    .grecaptcha-badge {
+        visibility: visible !important;
+    }
+}
+.not-a-robot {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.not-a-robot input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.not-a-robot label {
+    color: #555;
+    font-size: 14px;
+    cursor: pointer;
 }
